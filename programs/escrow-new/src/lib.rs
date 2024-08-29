@@ -5,7 +5,7 @@ pub mod contexts;
 
 use contexts::*;
 
-declare_id!("3H8CH3xLv48uNowb8eAn7J4AerNVUaNH7QWS5W5QxFEq");
+declare_id!("FTGFM3W8uxQz5hzxmSn9AzqveeeDeSD6siXiPePGUTai");
 
 #[program]
 pub mod escrow_new {
@@ -21,9 +21,9 @@ pub mod escrow_new {
         ctx.accounts.deposit(deposit)
     }
 
-    pub fn take(ctx: Context<Take>) -> Result<()> {
+    pub fn take(ctx: Context<Take>,amount:u64) -> Result<()> {
         // ctx.accounts.transfer()?;
-        ctx.accounts.withdraw_and_close_vault()
+        ctx.accounts.withdraw_and_close_vault(amount)
     }
 
     pub fn refund(ctx: Context<Refund>) -> Result<()> {
